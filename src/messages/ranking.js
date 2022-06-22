@@ -40,27 +40,24 @@ const footer = {
   },
 }
 
-const section = (index, { name, letter, grade }) => {
-  console.log(name, letter, grade)
-  return {
-    type: 'section',
+const section = (index, { name, letter, grade }) => ({
+  type: 'section',
+  text: {
+    type: 'mrkdwn',
+    text: '*' + ++index + '* - *' + name + '*',
+  },
+  accessory: {
+    type: 'button',
     text: {
-      type: 'mrkdwn',
-      text: '*' + ++index + '* - *' + name + '*',
+      type: 'plain_text',
+      text: letter,
+      emoji: true,
     },
-    accessory: {
-      type: 'button',
-      text: {
-        type: 'plain_text',
-        text: letter,
-        emoji: true,
-      },
-      url: `https://app.codacy.com/${CODACY_PROVIDER}/${CODACY_ORGANIZATION}/${name}/dashboard`,
-      action_id: 'repo-action',
-      style: getStyle(grade),
-    },
-  }
-}
+    url: `https://app.codacy.com/${CODACY_PROVIDER}/${CODACY_ORGANIZATION}/${name}/dashboard`,
+    action_id: 'repo-action',
+    style: getStyle(grade),
+  },
+})
 
 const basePayload = {
   blocks: [header, divider, tableHeader, divider],
