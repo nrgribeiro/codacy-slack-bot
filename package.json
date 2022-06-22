@@ -1,0 +1,34 @@
+{
+  "name": "codacy-bot",
+  "version": "0.0.1",
+  "description": "A bot to send Codacy analysis reports ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "codacy",
+    "bot",
+    "nodejs"
+  ],
+  "author": "blissapps",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^3.11.0",
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.1",
+    "dotenv": "^16.0.0",
+    "node-cron": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "standard-version": "^9.5.0"
+  }
+}
