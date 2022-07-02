@@ -3,7 +3,7 @@ const getStyle = (grade) => {
 
   if (grade < 70) return 'danger'
 
-  return ''
+  return
 }
 
 module.exports = getStyle
