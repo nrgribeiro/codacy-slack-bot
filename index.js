@@ -9,6 +9,6 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 })
 
-app.start(3000)
+app.start(process.env.PORT || 3000)
 
 core.init(app)
