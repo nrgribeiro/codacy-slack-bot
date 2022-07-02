@@ -68,8 +68,8 @@ const rankingPayload = {
     // past month top 10, sorted by grade
     // only the ones the had changes during that month
     const top = sort
-      .filter((item) => dayjs(item.lastUpdated).diff(dayjs(), 'month') >= 0)
       .numericByValue(items, 'grade')
+      .filter((item) => dayjs(item.lastUpdated).diff(dayjs(), 'month') >= 0)
       .reverse()
       .slice(0, 10)
 

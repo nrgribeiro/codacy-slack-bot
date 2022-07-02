@@ -33,6 +33,21 @@ const core = {
         text: 'Codacy report',
       })
     })
+
+    app.command('/ranking', async ({ command, ack, say }) => {
+      // Acknowledge command request
+      await ack()
+
+      const payload = await ranking.get()
+      try {
+        await say({
+          blocks: payload.blocks,
+          text: 'Codacy monthly report',
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    })
   },
 }
 
