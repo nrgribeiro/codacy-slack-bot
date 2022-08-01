@@ -59,12 +59,13 @@ const section = (index, { name, letter, grade }) => ({
   },
 })
 
-const basePayload = {
+const basePayload = () => ({
   blocks: [header, divider, tableHeader, divider],
-}
+})
 
 const rankingPayload = {
   build: (items) => {
+    const payload = basePayload()
     // past month top 10, sorted by grade
     // only the ones the had changes during that month
     const top = sort
@@ -75,11 +76,11 @@ const rankingPayload = {
 
     const sectionTop = top.map((item, index) => section(index, item))
 
-    basePayload.blocks.push(...sectionTop)
-    basePayload.blocks.push(divider)
-    basePayload.blocks.push(footer)
+    payload.blocks.push(...sectionTop)
+    payload.blocks.push(divider)
+    payload.blocks.push(footer)
 
-    return basePayload
+    return payload
   },
 }
 
