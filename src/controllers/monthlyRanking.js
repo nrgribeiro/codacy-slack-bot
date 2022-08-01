@@ -6,7 +6,9 @@ const ranking = {
   get: async () => {
     const result = await getRepositories.get()
 
-    const repos = result.data.map((item) => repository.create(item))
+    const repos = result.data
+      .filter((item) => item.repository.problems.length === 0)
+      .map((item) => repository.create(item))
 
     const payload = rankingPayload.build(repos)
 
